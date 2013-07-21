@@ -9,19 +9,21 @@ module.exports = function ( karma ) {
      * This is the list of file patterns to load into the browser during testing.
      */
     files: [
-      <% scripts.forEach( function ( file ) { %>'<%= file %>',
-      <% }); %>
-      'src/**/*.js',
-      'src/**/*.coffee',
+      // Include the ng-scenario library and adapter
+      // Remove these when `karma-ng-scenario` can be included:
+      // https://github.com/karma-runner/grunt-karma/issues/13
+      'vendor/angular-scenario/angular-scenario.js',
+      'node_modules/karma-ng-scenario/lib/adapter.js',
+
+      // Include all scenario tests
+      'src/**/*.scenario.*',
+
+      // Serve the contents of the "dist" folder as static files
+      {pattern: 'build/**/*', watched: false, included: false, served: true}
     ],
 
-    exclude: [
-        'src/**/*.fixture.*',
-        'src/**/*.scenario.*'
-    ],
-
-    frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-coffee-preprocessor' ],
+    //frameworks: [ 'ng-scenario' ],
+    plugins: [ 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-coffee-preprocessor' ],
     preprocessors: {
       '**/*.coffee': 'coffee'
     },
@@ -35,14 +37,19 @@ module.exports = function ( karma ) {
      * On which port should the browser connect, on which port is the test runner
      * operating, and what is the URL path for the browser to use.
      */
-    port: 9018,
-    runnerPort: 9100,
+    port: 9019,
+    runnerPort: 9101,
     urlRoot: '/',
 
     /** 
      * Disable file watching by default.
      */
     autoWatch: false,
+
+    /**
+     * Run E2E tests once by default
+     */
+    singleRun: true,
 
     /**
      * The list of browsers to launch to test on. This includes only "Firefox" by

@@ -20,8 +20,12 @@ module.exports = {
    * app's unit tests.
    */
   app_files: {
-    js: [ 'src/**/*.js', '!src/**/*.spec.js' ],
+    js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/**/*.fixture.js', '!src/**/*.scenario.js'],
     jsunit: [ 'src/**/*.spec.js' ],
+
+    jsfixture: [ 'src/**/*.fixture.js' ],
+    jsscenario: [ 'src/**/*.scenario.js' ],
+
     
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
@@ -53,7 +57,8 @@ module.exports = {
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
-      'vendor/angular-ui-utils/modules/route/route.js'
+      'vendor/angular-ui-utils/modules/route/route.js',
+      'vendor/angular-mocks/angular-mocks.js'
     ],
     css: [
     ]
