@@ -1,3 +1,4 @@
+.gitconfig
 *.sw*
 *~
 build/
