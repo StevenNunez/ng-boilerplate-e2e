@@ -60,7 +60,7 @@ module.exports = function ( karma ) {
      * or "firefox", but that these vary based on your operating system.
      *
      * You may also leave this blank and manually navigate your browser to
-     * http://localhost:9018/ when you're running tests. The window/tab can be left
+     * http://localhost:9020/ when you're running tests. The window/tab can be left
      * open and the tests will automatically occur there during the build. This has
      * the aesthetic advantage of not launching a browser every time you save.
      */
